@@ -18,7 +18,7 @@ int main() {
         std::cout << "Spiritual thoughts: ";
         std::getline(std::cin, thoughts);
 
-        scriptures.push_back(Scripture(reference, thoughts));
+        scriptures.emplace_back(reference, thoughts); // Use emplace_back for better efficiency
     }
 
     // Sort scriptures
@@ -27,7 +27,7 @@ int main() {
     // Print sorted list
     std::cout << "\nSorted list of scriptures:\n";
     for (const auto& scripture : scriptures) {
-        std::cout << scripture.getReference() << " - " << scripture.getThoughts() << "\n";
+        std::cout << scripture.getReference() << " - " << scripture.getThoughts() << '\n'; // Use '\n' for new line
     }
 
     // Search for a scripture
@@ -35,14 +35,13 @@ int main() {
     std::getline(std::cin, reference);
 
     auto it = std::find_if(scriptures.begin(), scriptures.end(),
-                           [&reference](const Scripture& s) { return s.getReference() == reference; });
+    [&reference](const Scripture& s) { return s.getReference() == reference; });
 
     if (it != scriptures.end()) {
-        std::cout << "Scripture found: " << it->getReference() << " - " << it->getThoughts() << "\n";
+        std::cout << "Scripture found: " << it->getReference() << " - " << it->getThoughts() << '\n'; // Use '\n' for new line
     } else {
         std::cout << "Scripture not found.\n";
     }
 
     return 0;
 }
-

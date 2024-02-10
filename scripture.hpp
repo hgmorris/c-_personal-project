@@ -1,6 +1,5 @@
-
-#ifndef SCRIPTURE.HPP
-#define SCRIPTURE.HPP
+#ifndef SCRIPTURE_HPP
+#define SCRIPTURE_HPP
 
 #include <string>
 
